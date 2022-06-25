@@ -113,6 +113,10 @@ namespace Mediapipe.Unity.PoseTracking.UI
       InitializeMinTrackingConfidence();
       InitializeRunningMode();
       InitializeTimeoutMillisec();
+
+      //Added
+      _solution.minDetectionConfidence = 0.3f;
+      _solution.minTrackingConfidence = 0.3f;
     }
 
     private void InitializeModelComplexity()
