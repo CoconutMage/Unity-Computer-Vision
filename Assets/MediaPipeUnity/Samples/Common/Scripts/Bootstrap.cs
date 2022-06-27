@@ -38,6 +38,8 @@ namespace Mediapipe.Unity
 
     private IEnumerator Init()
     {
+      yield return Application.RequestUserAuthorization(UserAuthorization.WebCam);
+
       Logger.SetLogger(new MemoizedLogger(100));
       Logger.MinLogLevel = Logger.LogLevel.Debug;
 
