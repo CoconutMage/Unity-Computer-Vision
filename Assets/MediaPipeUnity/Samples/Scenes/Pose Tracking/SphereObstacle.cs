@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class SphereObstacle : MonoBehaviour
 {
+  float speed = 0.3f;
   void Start()
   {
     
   }
   void FixedUpdate()
   {
-    transform.position = new Vector3(transform.position.x + 0.1f, transform.position.y, transform.position.z);
+    if (transform.position.x < GameObject.Find("PoseWorldLandmarks Annotation").transform.position.x) transform.position = new Vector3(transform.position.x + speed, transform.position.y, transform.position.z);
+    else transform.position = new Vector3(transform.position.x - speed, transform.position.y, transform.position.z);
   }
 }

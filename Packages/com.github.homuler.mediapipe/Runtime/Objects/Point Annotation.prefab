@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 5105739270100195973}
   - component: {fileID: 5105739270100195972}
   - component: {fileID: 5105739270100195704}
-  - component: {fileID: -3129301439339054592}
   m_Layer: 0
   m_Name: Point Annotation
   m_TagString: Player
@@ -111,17 +110,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0476f607871e33f2783b582f7a75703c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingPos: {x: 0, y: 0, z: 0}
   _color: {r: 0, g: 1, b: 0, a: 1}
   _radius: 15
---- !u!114 &-3129301439339054592
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5105739270100195971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d056e74e4af485a40ada584847fdd84d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

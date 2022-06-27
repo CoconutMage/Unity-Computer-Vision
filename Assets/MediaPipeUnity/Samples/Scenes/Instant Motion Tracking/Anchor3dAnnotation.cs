@@ -60,7 +60,7 @@ namespace Mediapipe.Unity
         var anchor3dPosition = GetAnchorPositionInRay(anchor2dPosition, anchor3d.z * defaultDepth, cameraPosition);
 
         Vector3 playerNewPos = player.transform.position;
-        playerNewPos.x = (anchor3dPosition - startingPos).x + playerPos.x;
+        playerNewPos.x = ((anchor3dPosition - startingPos).x / 2) + playerPos.x;
         playerNewPos.y = 0;
         player.transform.localPosition = playerNewPos;
 

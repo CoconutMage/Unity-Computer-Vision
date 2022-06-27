@@ -12,6 +12,7 @@
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
 /[Cc]ode[Cc]overage/
+/Game-Build
 *.csproj
 *.sln
 *.unitypackage
