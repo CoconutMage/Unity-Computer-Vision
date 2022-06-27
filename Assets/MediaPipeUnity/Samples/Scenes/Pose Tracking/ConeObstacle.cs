@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class ConeObstacle : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+  float timer;
+  void Start()
+  {
+    timer = 7.5f;
+  }
+  void Update()
+  {
+    if (timer <= 0)
     {
-        
+      Destroy(gameObject);
     }
-
-    // Update is called once per frame
-    void Update()
+    else
     {
-        
+      timer -= Time.deltaTime;
     }
+  }
 }

@@ -14,4 +14,8 @@ public class SphereObstacle : MonoBehaviour
     if (transform.position.x < GameObject.Find("PoseWorldLandmarks Annotation").transform.position.x) transform.position = new Vector3(transform.position.x + speed, transform.position.y, transform.position.z);
     else transform.position = new Vector3(transform.position.x - speed, transform.position.y, transform.position.z);
   }
+  private void OnDestroy()
+  {
+    GameObject.Find("Canvas").GetComponent<Score>().Scored();
+  }
 }

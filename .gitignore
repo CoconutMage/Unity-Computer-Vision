@@ -13,6 +13,8 @@
 /[Uu]ser[Ss]ettings/
 /[Cc]ode[Cc]overage/
 /Game-Build
+Game-Build.rar
+Game-Build.zip
 *.csproj
 *.sln
 *.unitypackage

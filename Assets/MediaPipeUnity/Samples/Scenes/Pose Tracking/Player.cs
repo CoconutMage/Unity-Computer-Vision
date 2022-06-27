@@ -12,6 +12,6 @@ public class Player : MonoBehaviour
   }
   public void OnTriggerEnter(Collider other)
   {
-    if (other.tag == "Obstacle") Debug.Log(other.name);
+    if (other.tag == "Obstacle") GameObject.Find("Canvas").GetComponent<Score>().Died();
   }
 }

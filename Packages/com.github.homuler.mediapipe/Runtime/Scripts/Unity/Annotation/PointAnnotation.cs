@@ -19,6 +19,7 @@ namespace Mediapipe.Unity
   {
     [SerializeField] private Color _color = Color.green;
     [SerializeField] private float _radius = 15.0f;
+    float points = 0;
 
     private void OnEnable()
     {
@@ -145,7 +146,6 @@ namespace Mediapipe.Unity
     {
       if (other.tag == "Obstacle")
       {
-        Debug.Log("Point");
         Destroy(other.gameObject);
       }
     }
