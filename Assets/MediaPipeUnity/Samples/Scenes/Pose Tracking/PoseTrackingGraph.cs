@@ -27,14 +27,14 @@ namespace Mediapipe.Unity.PoseTracking
     public bool enableSegmentation = true;
     public bool smoothSegmentation = true;
 
-    private float _minDetectionConfidence = 0.5f;
+    private float _minDetectionConfidence = 0.3f;
     public float minDetectionConfidence
     {
       get => _minDetectionConfidence;
       set => _minDetectionConfidence = Mathf.Clamp01(value);
     }
 
-    private float _minTrackingConfidence = 0.5f;
+    private float _minTrackingConfidence = 0.3f;
     public float minTrackingConfidence
     {
       get => _minTrackingConfidence;
@@ -178,7 +178,7 @@ namespace Mediapipe.Unity.PoseTracking
           {
             var options = calculator.Options.GetExtension(TensorsToDetectionsCalculatorOptions.Extensions.Ext);
             options.MinScoreThresh = minDetectionConfidence;
-            Logger.LogInfo(TAG, $"Min Detection Confidence = {minDetectionConfidence}");
+            //Logger.LogInfo(TAG, $"Min Detection Confidence = {minDetectionConfidence}");
           }
         }
 
@@ -188,7 +188,7 @@ namespace Mediapipe.Unity.PoseTracking
           {
             var options = calculator.Options.GetExtension(ThresholdingCalculatorOptions.Extensions.Ext);
             options.Threshold = minTrackingConfidence;
-            Logger.LogInfo(TAG, $"Min Tracking Confidence = {minTrackingConfidence}");
+            //Logger.LogInfo(TAG, $"Min Tracking Confidence = {minTrackingConfidence}");
           }
         }
         return calculatorGraph.Initialize(cannonicalizedConfig);
@@ -230,17 +230,17 @@ namespace Mediapipe.Unity.PoseTracking
       sidePacket.Emplace("output_horizontally_flipped", new BoolPacket(outputHorizontallyFlipped));
       sidePacket.Emplace("output_vertically_flipped", new BoolPacket(outputVerticallyFlipped));
 
-      Logger.LogDebug($"output_rotation = {outputRotation}, output_horizontally_flipped = {outputHorizontallyFlipped}, output_vertically_flipped = {outputVerticallyFlipped}");
+      //Logger.LogDebug($"output_rotation = {outputRotation}, output_horizontally_flipped = {outputHorizontallyFlipped}, output_vertically_flipped = {outputVerticallyFlipped}");
 
       sidePacket.Emplace("model_complexity", new IntPacket((int)modelComplexity));
       sidePacket.Emplace("smooth_landmarks", new BoolPacket(smoothLandmarks));
       sidePacket.Emplace("enable_segmentation", new BoolPacket(enableSegmentation));
       sidePacket.Emplace("smooth_segmentation", new BoolPacket(smoothSegmentation));
 
-      Logger.LogInfo(TAG, $"Model Complexity = {modelComplexity}");
-      Logger.LogInfo(TAG, $"Smooth Landmarks = {smoothLandmarks}");
-      Logger.LogInfo(TAG, $"Enable Segmentation = {enableSegmentation}");
-      Logger.LogInfo(TAG, $"Smooth Segmentation = {smoothSegmentation}");
+      //Logger.LogInfo(TAG, $"Model Complexity = {modelComplexity}");
+      //Logger.LogInfo(TAG, $"Smooth Landmarks = {smoothLandmarks}");
+      //Logger.LogInfo(TAG, $"Enable Segmentation = {enableSegmentation}");
+      //Logger.LogInfo(TAG, $"Smooth Segmentation = {smoothSegmentation}");
 
       return sidePacket;
     }

@@ -43,7 +43,7 @@ namespace Mediapipe.Unity
 
       Protobuf.SetLogHandler(Protobuf.DefaultLogHandler);
 
-      Logger.LogInfo(_TAG, "Setting global flags...");
+      //Logger.LogInfo(_TAG, "Setting global flags...");
       GlobalConfigManager.SetFlags();
 
       if (_enableGlog)
@@ -54,13 +54,13 @@ namespace Mediapipe.Unity
           {
             Directory.CreateDirectory(Glog.LogDir);
           }
-          Logger.LogVerbose(_TAG, $"Glog will output files under {Glog.LogDir}");
+          //Logger.LogVerbose(_TAG, $"Glog will output files under {Glog.LogDir}");
         }
         Glog.Initialize("MediaPipeUnityPlugin");
         _isGlogInitialized = true;
       }
 
-      Logger.LogInfo(_TAG, "Initializing AssetLoader...");
+      //Logger.LogInfo(_TAG, "Initializing AssetLoader...");
       switch (_assetLoaderType)
       {
         case AssetLoaderType.AssetBundle:
@@ -93,16 +93,16 @@ namespace Mediapipe.Unity
       DecideInferenceMode();
       if (inferenceMode == InferenceMode.GPU)
       {
-        Logger.LogInfo(_TAG, "Initializing GPU resources...");
+        //Logger.LogInfo(_TAG, "Initializing GPU resources...");
         yield return GpuManager.Initialize();
 
         if (!GpuManager.IsInitialized)
         {
-          Logger.LogWarning("If your native library is built for CPU, change 'Preferable Inference Mode' to CPU from the Inspector Window for Bootstrap");
+          //Logger.LogWarning("If your native library is built for CPU, change 'Preferable Inference Mode' to CPU from the Inspector Window for Bootstrap");
         }
       }
 
-      Logger.LogInfo(_TAG, "Preparing ImageSource...");
+      //Logger.LogInfo(_TAG, "Preparing ImageSource...");
       ImageSourceProvider.ImageSource = GetImageSource(_defaultImageSource);
 
       isFinished = true;
@@ -136,7 +136,7 @@ namespace Mediapipe.Unity
     {
 #if UNITY_EDITOR_OSX || UNITY_EDITOR_WIN
       if (_preferableInferenceMode == InferenceMode.GPU) {
-        Logger.LogWarning(_TAG, "Current platform does not support GPU inference mode, so falling back to CPU mode");
+        //Logger.LogWarning(_TAG, "Current platform does not support GPU inference mode, so falling back to CPU mode");
       }
       inferenceMode = InferenceMode.CPU;
 #else

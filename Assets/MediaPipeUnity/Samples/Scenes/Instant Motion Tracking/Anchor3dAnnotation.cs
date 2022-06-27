@@ -15,6 +15,9 @@ namespace Mediapipe.Unity
     [SerializeField] private PointAnnotation _pointAnnotation;
     [SerializeField] private float _arrowLengthScale = 1.0f;
 
+    [SerializeField] GameObject player;
+    [SerializeField] Vector3 playerPos;
+
     public override bool isMirrored
     {
       set
@@ -55,6 +58,11 @@ namespace Mediapipe.Unity
         var anchor3d = (Anchor3d)target;
         var anchor2dPosition = GetScreenRect().GetPoint(anchor3d, rotationAngle, isMirrored);
         var anchor3dPosition = GetAnchorPositionInRay(anchor2dPosition, anchor3d.z * defaultDepth, cameraPosition);
+
+        Vector3 playerNewPos = player.transform.position;
+        playerNewPos.x = (anchor3dPosition - startingPos).x + playerPos.x;
+        playerNewPos.y = 0;
+        player.transform.localPosition = playerNewPos;
 
         _pointAnnotation.Draw(anchor2dPosition);
         _transformAnnotation.origin = anchor3dPosition;

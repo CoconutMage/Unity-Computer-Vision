@@ -113,14 +113,14 @@ namespace Mediapipe.Unity
     {
       this.runningMode = runningMode;
 
-      Logger.LogInfo(TAG, $"Config Type = {configType}");
-      Logger.LogInfo(TAG, $"Running Mode = {runningMode}");
+      //Logger.LogInfo(TAG, $"Config Type = {configType}");
+      //Logger.LogInfo(TAG, $"Running Mode = {runningMode}");
 
       InitializeCalculatorGraph().AssertOk();
       _stopwatch = new Stopwatch();
       _stopwatch.Start();
 
-      Logger.LogInfo(TAG, "Loading dependent assets...");
+      //Logger.LogInfo(TAG, "Loading dependent assets...");
       var assetRequests = RequestDependentAssets();
       yield return new WaitWhile(() => assetRequests.Any((request) => request.keepWaiting));
 
@@ -129,7 +129,7 @@ namespace Mediapipe.Unity
       {
         foreach (var error in errors)
         {
-          Logger.LogError(TAG, error);
+          //Logger.LogError(TAG, error);
         }
         throw new InternalException("Failed to prepare dependent assets");
       }
@@ -153,7 +153,7 @@ namespace Mediapipe.Unity
           {
             if (!status.Ok())
             {
-              Logger.LogError(TAG, status.ToString());
+              //Logger.LogError(TAG, status.ToString());
             }
           }
 
@@ -161,7 +161,7 @@ namespace Mediapipe.Unity
           {
             if (!status.Ok())
             {
-              Logger.LogError(TAG, status.ToString());
+              //Logger.LogError(TAG, status.ToString());
             }
           }
         }

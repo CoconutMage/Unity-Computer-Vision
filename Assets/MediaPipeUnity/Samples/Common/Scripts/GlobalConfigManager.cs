@@ -72,11 +72,11 @@ namespace Mediapipe.Unity
 
           if (!File.Exists(ConfigFilePath))
           {
-            Logger.LogDebug(_TAG, $"Global config file does not exist: {ConfigFilePath}");
+            //Logger.LogDebug(_TAG, $"Global config file does not exist: {ConfigFilePath}");
           }
           else
           {
-            Logger.LogDebug(_TAG, $"Reading the config file ({ConfigFilePath})...");
+            //Logger.LogDebug(_TAG, $"Reading the config file ({ConfigFilePath})...");
             foreach (var line in File.ReadLines(ConfigFilePath))
             {
               try
@@ -86,7 +86,7 @@ namespace Mediapipe.Unity
               }
               catch (System.Exception e)
               {
-                Logger.LogWarning($"{e}");
+                //Logger.LogWarning($"{e}");
               }
             }
           }
@@ -110,7 +110,7 @@ namespace Mediapipe.Unity
         var _ = Directory.CreateDirectory(CacheDirPath);
       }
       File.WriteAllLines(ConfigFilePath, lines, Encoding.UTF8);
-      Logger.LogInfo(_TAG, "Global config file has been updated");
+      //Logger.LogInfo(_TAG, "Global config file has been updated");
     }
 
     public static void SetFlags()

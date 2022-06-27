@@ -59,6 +59,13 @@ namespace Mediapipe.Unity
           position.z = 0.0f;
         }
         transform.localPosition = position;
+        //Instantiate Here!!!
+        if (transform.parent.GetChild(15).Equals(transform) || transform.parent.GetChild(16).Equals(transform)) GetComponent<MeshRenderer>().enabled = true;
+        else
+        {
+          GetComponent<MeshRenderer>().enabled = false;
+          GetComponent<SphereCollider>().enabled = false;
+        }
       }
     }
 
@@ -133,6 +140,14 @@ namespace Mediapipe.Unity
       var t = (score - threshold) / (1 - threshold);
       var h = Mathf.Lerp(90, 0, t) / 360; // from yellow-green to red
       return Color.HSVToRGB(h, 1, 1);
+    }
+    public void OnTriggerEnter(Collider other)
+    {
+      if (other.tag == "Obstacle")
+      {
+        Debug.Log("Point");
+        Destroy(other.gameObject);
+      }
     }
   }
 }

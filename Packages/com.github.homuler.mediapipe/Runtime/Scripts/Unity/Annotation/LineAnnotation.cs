@@ -54,7 +54,20 @@ namespace Mediapipe.Unity
 
     public void Draw(GameObject a, GameObject b)
     {
+      /*if (transform.parent.GetChild(11).Equals(transform) || transform.parent.GetChild(20).Equals(transform))// || transform.parent.GetChild(16).Equals(transform) || transform.parent.GetChild(17).Equals(transform) || transform.parent.GetChild(18).Equals(transform))
+      {
+        transform.GetChild(0).gameObject.SetActive(false);
+        return;
+      }*/
       _lineRenderer.SetPositions(new Vector3[] { a.transform.localPosition, b.transform.localPosition });
+      transform.GetChild(0).position = a.transform.position;
+      //transform.GetChild(0).LookAt(b.transform, transform.GetChild(0).right);
+      Vector3 r = Quaternion.LookRotation((b.transform.position - transform.GetChild(0).position).normalized).eulerAngles;
+      r.x += 90;
+      transform.GetChild(0).rotation = Quaternion.Euler(r);
+      Vector3 s = transform.GetChild(0).localScale;
+      s.y = Vector3.Distance(b.transform.position, transform.GetChild(0).position);
+      transform.GetChild(0).localScale = s;
     }
 
     public void ApplyColor(Color color)

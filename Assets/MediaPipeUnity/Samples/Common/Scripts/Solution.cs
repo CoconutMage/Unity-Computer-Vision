@@ -104,7 +104,7 @@ namespace Mediapipe.Unity
       bootstrap.enabled = true;
 
       // hide menu button when trying a single scene.
-      DisableMenuButton();
+      //DisableMenuButton();
       return bootstrap;
     }
 

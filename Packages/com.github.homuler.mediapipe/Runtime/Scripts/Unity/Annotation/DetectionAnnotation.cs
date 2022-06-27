@@ -77,7 +77,7 @@ namespace Mediapipe.Unity
         var (maxWidth, maxHeight) = isInverted ? (height, width) : (width, height);
         _labelAnnotation.Draw(labelText, rectVertices[vertexId], color, maxWidth, maxHeight);
 
-        _relativeKeypointsAnnotation.Draw(target.LocationData.RelativeKeypoints);
+        //_relativeKeypointsAnnotation.Draw(target.LocationData.RelativeKeypoints);
       }
     }
 

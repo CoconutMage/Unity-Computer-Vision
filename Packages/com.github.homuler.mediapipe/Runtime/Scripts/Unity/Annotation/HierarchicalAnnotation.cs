@@ -18,6 +18,7 @@ namespace Mediapipe.Unity
 
   public abstract class HierarchicalAnnotation : MonoBehaviour, IHierachicalAnnotation
   {
+    public Vector3 startingPos;
     private IHierachicalAnnotation _root;
     public IHierachicalAnnotation root
     {
@@ -50,6 +51,7 @@ namespace Mediapipe.Unity
     {
       if (this.isActive != isActive)
       {
+        startingPos = transform.position;
         gameObject.SetActive(isActive);
       }
     }

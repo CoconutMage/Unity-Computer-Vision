@@ -119,6 +119,7 @@ namespace Mediapipe.Unity
       ApplyRightLandmarkColor(_rightLandmarkColor);
 
       _connectionListAnnotation.Fill(_Connections, _landmarkListAnnotation);
+
     }
 
     private void OnValidate()
